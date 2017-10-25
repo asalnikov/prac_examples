@@ -12,7 +12,13 @@
  * Game finishes when one of processes achive limit specified in arguments 
  * of program.
  *
+ * It is allowed to use only one pipe and signals. Other IPC primitives are
+ * disallowed.
+ *
  * But really we see race-condition here.
+ *
+ * Reasoning for race is a signal catch by handler before actual
+ * remote_pid is assigned.
  * 
  */
 #define _POSIX_SOURCE
